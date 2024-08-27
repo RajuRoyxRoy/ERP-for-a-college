@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Calendar</title>
+    <link rel="stylesheet" href="calstyles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calendar">
+            <div class="calendar-header">
+                <h2>University Calendar</h2>
+                <button id="add-event-btn">Add Event</button>
+                <button id="download-btn">Download Event List</button>
+            </div>
+            <div class="calendar-body" id="calendar-body">
+                <!-- Calendar events will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding/editing events -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modal-title">Add Event</h3>
+            <form id="event-form">
+                <input type="hidden" id="event-id" name="event-id">
+                <label for="event-title">Event Title:</label>
+                <input type="text" id="event-title" name="event-title" required><br><br>
+                <label for="event-date">Event Date:</label>
+                <input type="date" id="event-date" name="event-date" required><br><br>
+                <button type="submit" id="save-event-btn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addEventBtn = document.getElementById('add-event-btn');
+            const modal = document.getElementById('event-modal');
+            const closeModalBtn = modal.querySelector('.close');
+            const eventForm = document.getElementById('event-form');
+            const calendarBody = document.getElementById('calendar-body');
+            const downloadBtn = document.getElementById('download-btn');
+            let events = []; // Array to store events
+
+            // Show modal when Add Event button is clicked
+            addEventBtn.addEventListener('click', function() {
+                showModal('Add Event', null);
+            });
+
+            // Close modal when close button is clicked
+            closeModalBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside of modal content
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Submit event form
+            eventForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const eventId = document.getElementById('event-id').value;
+                const eventTitle = document.getElementById('event-title').value;
+                const eventDate = document.getElementById('event-date').value;
+
+                if (eventId) {
+                    // Edit existing event
+                    const index = events.findIndex(event => event.id === eventId);
+                    if (index !== -1) {
+                        events[index].title = eventTitle;
+                        events[index].date = eventDate;
+                        updateEventElement(events[index]);
+                    }
+                } else {
+                    // Add new event
+                    const newEvent = {
+                        id: generateId(),
+                        title: eventTitle,
+                        date: eventDate
+                    };
+                    events.push(newEvent);
+                    renderEventElement(newEvent);
+                }
+
+                // Clear form and close modal
+                eventForm.reset();
+                modal.style.display = 'none';
+            });
+
+            // Download event list as PDF
+            downloadBtn.addEventListener('click', function() {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                pdf.text('University Calendar', 10, 10);
+                pdf.autoTable({
+                    head: [['Title', 'Date']],
+                    body: events.map(event => [event.title, event.date])
+                });
+                pdf.save('university_calendar.pdf');
+            });
+
+            // Helper function to generate unique event IDs
+            function generateId() {
+                return '_' + Math.random().toString(36).substr(2, 9);
+            }
+
+            // Helper function to show modal for adding/editing events
+            function showModal(title, event) {
+                document.getElementById('modal-title').textContent = title;
+                if (event) {
+                    document.getElementById('event-id').value = event.id;
+                    document.getElementById('event-title').value = event.title;
+                    document.getElementById('event-date').value = event.date;
+                } else {
+                    document.getElementById('event-id').value = '';
+                    document.getElementById('event-title').value = '';
+                    document.getElementById('event-date').value = '';
+                }
+                modal.style.display = 'block';
+            }
+
+            // Helper function to render event element on calendar body
+            function renderEventElement(event) {
+                const eventElement = document.createElement('div');
+                eventElement.classList.add('event');
+                eventElement.innerHTML = `
+                    <span class="event-title">${event.title}</span> - ${event.date}
+                    <button class="edit-btn" data-id="${event.id}">Edit</button>
+                    <button class="delete-btn" data-id="${event.id}">Delete</button>
+                `;
+                eventElement.setAttribute('data-id', event.id);
+                calendarBody.appendChild(eventElement);
+
+                // Add event listeners for edit and delete buttons
+                const editBtn = eventElement.querySelector('.edit-btn');
+                const deleteBtn = eventElement.querySelector('.delete-btn');
+                editBtn.addEventListener('click', function() {
+                    const eventId = this.getAttribute('data-id');
+                    const selectedEvent = events.find(event => event.id === eventId);
+                    showModal('Edit Event', selectedEvent);
+                });
+                deleteBtn.addEventListener('click', function() {
+                    const eventId = this.getAttribute('data-id');
+                    const index = events.findIndex(event => event.id === eventId);
+                    if (index !== -1) {
+                        events.splice(index, 1);
+                        eventElement.remove();
+                    }
+                });
+            }
+
+            // Helper function to update event element on calendar body
+            function updateEventElement(event) {
+                const eventElement = calendarBody.querySelector(`.event[data-id="${event.id}"]`);
+                if (eventElement) {
+                    eventElement.innerHTML = `
+                        <span class="event-title">${event.title}</span> - ${event.date}
+                        <button class="edit-btn" data-id="${event.id}">Edit</button>
+                        <button class="delete-btn" data-id="${event.id}">Delete</button>
+                    `;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

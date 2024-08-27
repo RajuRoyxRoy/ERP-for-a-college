@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Email Management</h1>
+
+<div class="buttons">
+    <button onclick="openModal('addModal')">Add Email</button>
+    <button onclick="editEmail()">Edit Selected</button>
+    <button onclick="deleteEmail()">Delete Selected</button>
+    <button onclick="openModal('composeModal')">Compose Email</button>
+    <button onclick="saveEmails()">Save Emails</button>
+</div>
+
+<div class="table-container">
+    <h2>Parents</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="parentsTable">
+            <!-- Dynamic content for parents goes here -->
+        </tbody>
+    </table>
+
+    <h2>Teachers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="teachersTable">
+            <!-- Dynamic content for teachers goes here -->
+        </tbody>
+    </table>
+
+    <h2>Students</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="studentsTable">
+            <!-- Dynamic content for students goes here -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Add Email Modal -->
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('addModal')">&times;</span>
+        <h3>Add Email</h3>
+        <form id="addEmailForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="Parent">Parent</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Email Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('editModal')">&times;</span>
+        <h3>Edit Email</h3>
+        <form id="editEmailForm">
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" name="editName" required>
+            <br><br>
+            <label for="editRole">Role:</label>
+            <select id="editRole" name="editRole" required>
+                <option value="Parent">Parent</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+            <br><br>
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="editEmail" required>
+            <br><br>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<!-- Compose Email Modal -->
+<div id="composeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('composeModal')">&times;</span>
+        <h3>Compose Email</h3>
+        <form id="composeEmailForm" onsubmit="prepareEmail(); return false;">
+            <label for="emailSubject">Subject:</label>
+            <input type="text" id="emailSubject" name="emailSubject" required>
+            <br><br>
+            <label for="emailBody">Body:</label>
+            <textarea id="emailBody" name="emailBody" rows="6" required></textarea>
+            <br><br>
+            <button type="submit">Send Email</button>
+        </form>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>

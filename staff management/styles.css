@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #0044cc;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+}
+
+aside {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.profile-picture img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.quick-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quick-links li {
+    margin-top: 10px;
+}
+
+.quick-links li a {
+    text-decoration: none;
+    color: #0044cc;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.staff-list input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.staff-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.staff-list table th, .staff-list table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.staff-list #addStaffButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.staff-list #addStaffButton:hover {
+    background-color: #003399;
+}
+
+.staff-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.staff-details form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.staff-details form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.staff-details form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.staff-details form h3 {
+    grid-column: span 2;
+    margin-top: 20px;
+}
+
+.staff-details form button {
+    grid-column: span 2;
+    padding: 10px;
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.staff-details form button:hover {
+    background-color: #003399;
+}
+
+footer {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

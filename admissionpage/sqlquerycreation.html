@@ -1,0 +1,23 @@
+CREATE TABLE `admission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `full_name` varchar(255) NOT NULL,
+  `dob` date NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `nationality` varchar(100) NOT NULL,
+  `address` text NOT NULL,
+  `contact_number` varchar(15) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `photo` varchar(255) NOT NULL,
+  `previous_institutions` text NOT NULL,
+  `grades` varchar(50) NOT NULL,
+  `course` varchar(100) NOT NULL,
+  `campus` varchar(100) DEFAULT NULL,
+  `mode_of_study` varchar(20) NOT NULL,
+  `entry_term` varchar(50) NOT NULL,
+  `parent_names` varchar(255) NOT NULL,
+  `parent_contact` varchar(15) NOT NULL,
+  `parent_occupation` varchar(100) NOT NULL,
+  `signature` varchar(255) NOT NULL,
+  `submission_date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

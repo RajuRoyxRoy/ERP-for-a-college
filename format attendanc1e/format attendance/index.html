@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Welcome Administrator</h1>
+      <p>Bishal & Raju | <a href="#" onclick="logout()">Logout</a></p>
+    </header>
+    
+    <nav class="tabs">
+      <button onclick="showTab('users')">Users</button>
+      <button onclick="showTab('students')">Students</button>
+      <button onclick="showTab('attendance')">Attendance</button>
+      <button onclick="showTab('attendanceReport')">Attendance Report</button>
+    </nav>
+    
+    <section id="users" class="tab-content">
+      <h2>Users</h2>
+      <button onclick="showUserForm()">Add New</button>
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="students" class="tab-content">
+      <h2>Students</h2>
+      <button onclick="showStudentForm()">Add New</button>
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="attendance" class="tab-content">
+      <h2>Attendance</h2>
+      <label for="classSelect">Select Class for Attendance</label>
+      <select id="classSelect">
+        <option value="10">Class 10</option>
+        <option value="11">Class 11</option>
+        <option value="12">Class 12</option>
+      </select>
+      <label for="classSection">Select Class Section</label>
+    <select id="classSection">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <!-- Add more options as needed -->
+    </select>
+      <label for="attendanceDate">Select Date</label>
+      <input type="date" id="attendanceDate">
+      <button onclick="searchClass()">Search</button>
+      <!-- Attendance Table -->
+      <table id="attendanceForm">
+        <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Attendance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be dynamically populated -->
+        </tbody>
+      </table>
+      <br>
+      <button onclick="saveAttendance()">Save Attendance</button>
+    </section>
+
+    <section id="attendanceReport" class="tab-content">
+      <h2>Attendance Report</h2>
+      <label for="studentSelect">Select Student for Report</label>
+      <select id="studentSelect">
+        <!-- Options will be dynamically populated -->
+      </select>
+      <button onclick="renderStudentAttendanceReport()">Show Report</button>
+      <canvas id="attendanceChart"></canvas>
+    </section>
+  </main>
+
+  <!-- User Form Modal -->
+  <div id="userFormModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeUserForm()">&times;</span>
+      <h2>Add/Edit User</h2>
+      <form id="userForm">
+        <input type="hidden" id="userId">
+        <label for="userName">Name</label>
+        <input type="text" id="userName" required>
+        <label for="userEmail">Email</label>
+        <input type="email" id="userEmail" required>
+        <label for="userGender">Gender</label>
+        <select id="userGender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <label for="userMobile">Mobile</label>
+        <input type="text" id="userMobile" required>
+        <label for="userRole">Role</label>
+        <select id="userRole" required>
+          <option value="teacher">Teacher</option>
+          <option value="admin">Admin</option>
+        </select>
+        <label for="userStatus">Status</label>
+        <select id="userStatus" required>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+        <button type="button" onclick="saveUser()">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Student Form Modal -->
+  <div id="studentFormModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeStudentForm()">&times;</span>
+      <h2>Add/Edit Student</h2>
+      <form id="studentForm">
+        <input type="hidden" id="studentId">
+        <label for="studentName">Name</label>
+        <input type="text" id="studentName" required>
+        <label for="studentRollNo">Roll No</label>
+        <input type="text" id="studentRollNo" required>
+        <label for="studentClass">Class</label>
+        <select id="studentClass" required>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <label for="studentSection">Section</label>
+        <select id="studentSection" required>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <!-- Add more options as needed -->
+        </select>
+        <button type="button" onclick="saveStudent()">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;  
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('/AdminPanelProject/login/sunset.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    width: 450px;
+    padding: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 30px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    color: #fff;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    border-radius: 25px;
+    padding: 10px 15px;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #00bfff;
+    font-size: 12px;
+}
+
+.sparkle-button {
+    position: relative;
+    padding: 12px 35px;
+    background: #95f9fe;
+    font-size: 17px;
+    font-weight: 500;
+    color: #181818;
+    border: 3px solid #95f9fe;
+    border-radius: 50px;
+    box-shadow: 0 0 0 #fec1958c;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.star-1,
+.star-2,
+.star-3,
+.star-4,
+.star-5,
+.star-6 {
+    position: absolute;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.sparkle-button:hover {
+    background: transparent;
+    color: #95f9fe;
+    box-shadow: 0 0 25px #fec1958c;
+}
+
+.sparkle-button:hover .star-1,
+.sparkle-button:hover .star-2,
+.sparkle-button:hover .star-3,
+.sparkle-button:hover .star-4,
+.sparkle-button:hover .star-5,
+.sparkle-button:hover .star-6 {
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .sparkle-button {
+        margin-top: 20px;
+    }
+}
