@@ -1,105 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>University Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="dashboard-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="sidebar">
-        <div class="logo">
-            <img src="logo.jpg" width="150" height="auto" alt="University Logo">
-            <h3 style="text-align: center;"> UNIVER<span class="danger">SITY</span></h3>
-        </div>
-        <ul>
-            <li class="active"><a href="index.html"><span class="icon">🏠</span> Dashboard</a></li>
-            <li><a href="admissionpage/addmission.html"><span class="icon">📚</span> Admission Management</a></li>
-            <li><a href="staff management/staff.html"><span class="icon">👥</span> Staff Management</a></li>
-            <li><a href="#"><span class="icon">🧑‍🤝‍🧑</span> Parents Account</a></li>
-            <li><a href="online classes/index.html"><span class="icon">💻</span> Online Classes</a></li>
-            <li><a href="format attendanc1e/format attendance/index.html"><span class="icon">📅</span> Attendance</a></li>
-            <li><a href="Result/result.html"><span class="icon">📊</span> Exam Result</a></li>
-            <li><a href="#"><span class="icon">🕒</span> Timetable Management</a></li>
-            <li><a href="email/index.html"><span class="icon">✉️</span> Mail / SMS</a></li>
-            <li><a href="#"><span class="icon">📢</span> Announcement</a></li>
-            <li><a href="libary management/index.html"><span class="icon">📚</span> Library</a></li>
-            <li><a href="#"><span class="icon">🔒</span>Logout</a></li>
-        </ul>
+      <div class="logo">
+        <img src="logo.jpg" width="150" height="auto" alt="University Logo" />
+        <h3 style="text-align: center">
+          UNI<span class="danger">VERSITY</span>
+        </h3>
+      </div>
+      <div class="divider"></div>
+      <ul>
+        <a href="index.html">
+          <li class="active"><span class="icon">🏠</span> Dashboard</li>
+        </a>
+
+        <a href="admissionpage/admission.html">
+          <li><span class="icon">📚</span> Admission Management</li></a
+        >
+
+        <a href="staff management/staff.html">
+          <li><span class="icon">👥</span> Staff Management</li></a
+        >
+
+        <a href="#"
+          ><li><span class="icon">🧑‍🤝‍🧑</span> Parents Account</li></a
+        >
+
+        <a href="online classes/index.html"
+          ><li><span class="icon">💻</span> Online Classes</li></a
+        >
+
+        <a href="format attendanc1e/format attendance/index.html"
+          ><li><span class="icon">📅</span> Attendance</li></a
+        >
+
+        <a href="Result/result.html"
+          ><li><span class="icon">📊</span> Exam Result</li></a
+        >
+
+        <a href="#"
+          ><li><span class="icon">🕒</span> Timetable Management</li></a
+        >
+
+        <a href="email/index.html"
+          ><li><span class="icon">✉️</span> Mail / SMS</li></a
+        >
+
+        <a href="#"
+          ><li><span class="icon">📢</span> Announcement</li></a
+        >
+
+        <a href="libary management/index.html"
+          ><li><span class="icon">📚</span> Library</li></a
+        >
+
+        <a href="#"
+          ><li><span class="icon">🔒</span>Logout</li></a
+        >
+      </ul>
     </div>
+
     <div class="main-content">
+      <div class="main-body">
         <header>
-            <h2>Dashboard</h2>
-            <div class="user-info">
-                <div class="date-time" id="date-time"></div>
-                <div class="logo">
-                    <img src="logo.jpg" width="50" height="auto" alt="University Logo">
-                    
-                </div>
-
-                <span class="user-name">Hey, Sam</span>
+          <h1>DASHBOARD</h1>
+          <div class="user-info">
+            <div class="date-time">
+              <div class="date-time-div">
+                <p>Date:</p>
+                <div class="date" id="date"></div>
+              </div>
+              <div class="date-time-div">
+                <p>Time:</p>
+                <div class="time" id="time"></div>
+              </div>
             </div>
 
+            <div class="profile">
+              <img
+                src="logo.jpg"
+                width="50"
+                height="auto"
+                alt="University Logo"
+              />
+
+              <span class="user-name">Hey, Sam</span>
+            </div>
+          </div>
         </header>
-        <div class="overview">
-                <div class="calendar" id="calendar">
-                    <a href="Calendar-main/calender.html">
-                    <div class="calendar-date">
-                        <span id="current-day"></span>, <span id="current-date"></span>
-                    </div>
-                </a>
-                </div>
-            <div class="to-do-list">
-                <h3>To-Do List</h3>
-                <input type="text" id="task-input" placeholder="Add a new task">
-                <button onclick="addTask()">Add</button>
-                <ul id="task-list"></ul>
-            </div>
-        </div>
         <div class="cards">
-            <div class="card" onclick="location.href='students.html'">
-                <div class="card-info">
-                    <h3>44</h3>
-                    <p>Students</p>
-                </div>
-                <i class="fas fa-user-graduate"></i>
+          <div
+            class="card card-student"
+            onclick="location.href='students.html'"
+          >
+            <div class="card-info">
+              <h3>44</h3>
+              <p>Students</p>
             </div>
-            <div class="card" onclick="location.href='teachers.html'">
-                <div class="card-info">
-                    <h3>30</h3>
-                    <p>Teachers</p>
-                </div>
-                <i class="fas fa-chalkboard-teacher"></i>
+            <img src="assets/icons/student.png" alt="student" />
+          </div>
+          <div
+            class="card card-teacher"
+            onclick="location.href='teachers.html'"
+          >
+            <div class="card-info">
+              <h3>30</h3>
+              <p>Teachers</p>
             </div>
-            <div class="card">
-                <div class="card-info">
-                    <h3>10</h3>
-                    <p>Parents</p>
-                </div>
-                <i class="fas fa-users"></i>
+            <img src="assets/icons/teacher.png" alt="teacher" />
+          </div>
+          <div class="card card-parent">
+            <div class="card-info">
+              <h3>10</h3>
+              <p>Parents</p>
             </div>
-            <div class="card">
-                <div class="card-info">
-                    <h3>35</h3>
-                    <p>Courses</p>
-                </div>
-                <i class="fas fa-book"></i>
+            <img src="assets/icons/parent.png" alt="parent" />
+          </div>
+          <div class="card card-course">
+            <div class="card-info">
+              <h3>35</h3>
+              <p>Courses</p>
             </div>
-            <div class="card">
-                <div class="card-info">
-                    <h3>60</h3>
-                    <p>Total Employees</p>
-                </div>
-                <i class="fas fa-building"></i>
+            <img src="assets/icons/course.png" alt="" />
+          </div>
+          <div class="card card-employee">
+            <div class="card-info">
+              <h3>60</h3>
+              <p>Total Employees</p>
             </div>
+            <img src="assets/icons/employee.png" alt="" />
+          </div>
         </div>
         <div class="chart-container">
-            <h3>Attendance Chart</h3>
-            <canvas id="attendance-chart"></canvas>
+          <h3>Attendance Chart</h3>
+          <canvas id="attendance-chart"></canvas>
         </div>
+      </div>
+
+      <div class="notice-section">
+        <div class="to-do-list">
+          <h2>To-Do List</h2>
+          <input type="text" id="task-input" placeholder="Add a new task" />
+          <button onclick="addTask()">ADD</button>
+          <ul id="task-list"></ul>
+        </div>
+        <div class="calendar" id="calendar">
+          <a href="Calendar-main/calender.html"> </a>
+          <div class="calendar-date">
+            <span id="current-day"></span>, <span id="current-date"></span>
+            <h2>NOTICE</h2>
+            <ul id="notice-list"></ul>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

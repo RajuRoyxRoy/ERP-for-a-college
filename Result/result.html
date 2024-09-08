@@ -1,68 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Marks Management</title>
-    <link rel="stylesheet" href="result.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Student Marks Management</h1>
+    <link rel="stylesheet" href="result-styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Student Marks Management</h1>
+    <div class="result-body">
+      <div class="container">
         <div class="form-container">
-            <form id="marksForm">
-                <div>
-                    <label for="studentClass">Class:</label>
-                    <select id="studentClass" onchange="updateSubjects()" required>
-                        <option value="Class 1">Class 1</option>
-                        <option value="Class 2">Class 2</option>
-                        <option value="Class 3">Class 3</option>
-                        <!-- Add more classes as needed -->
-                    </select>
-                </div>
-                <div>
-                    <label for="rollNumber">Roll Number:</label>
-                    <input type="number" id="rollNumber" required>
-                </div>
-                <div>
-                    <label for="studentName">Student Name:</label>
-                    <input type="text" id="studentName" required>
-                </div>
-                <div id="subjectsContainer">
-                    <!-- Subjects will be populated here based on the selected class -->
-                </div>
-                <div>
-                    <label for="subjectSelect">Add Subject:</label>
-                    <select id="subjectSelect">
-                        <option value="Maths">Maths</option>
-                        <option value="Science">Science</option>
-                        <option value="English">English</option>
-                        <option value="Geography">Geography</option>
-                        <option value="Computer">Computer</option>
-                        <option value="History">History</option>
-                        <option value="Hindi">Hindi</option>
-                        <option value="Physics">Physics</option>
-                        <option value="Chemistry">Chemistry</option>
-                    </select>
-                    <button type="button" onclick="addSubjectInput()">Add Subject</button>
-                </div>
-                <div class="button-group">
-                    <button type="button" onclick="clearAllSubjects()">Clear All Subjects</button>
-                    <button type="button" onclick="addStudent()">Add Student</button>
-                    <button type="button" onclick="updateStudent()" id="updateButton" style="display: none;">Update Student</button>
-                    <button type="button" onclick="saveMarks()">Save Marks</button>
-                    <button type="button" onclick="downloadMarks()">Download Marks</button>
-                </div>
-            </form>
+          <form id="marksForm">
+            <div>
+              <label for="studentName">Student Name:</label>
+              <input type="text" id="studentName" required />
+            </div>
+            <div class="row">
+              <div>
+                <label for="studentClass">Class:</label>
+                <select id="studentClass" onchange="updateSubjects()" required>
+                  <option value="Class 1">Class 1</option>
+                  <option value="Class 2">Class 2</option>
+                  <option value="Class 3">Class 3</option>
+                  <!-- Add more classes as needed -->
+                </select>
+              </div>
+              <div>
+                <label for="rollNumber">Roll Number:</label>
+                <input type="number" id="rollNumber" required />
+              </div>
+            </div>
+            <div id="subjectsContainer">
+              <!-- Subjects will be populated here based on the selected class -->
+            </div>
+
+            <div>
+              <label for="subjectSelect">Add Subject:</label>
+              <select id="subjectSelect">
+                <option value="Maths">Maths</option>
+                <option value="Science">Science</option>
+                <option value="English">English</option>
+                <option value="Geography">Geography</option>
+                <option value="Computer">Computer</option>
+                <option value="History">History</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+              </select>
+              <button type="button" onclick="addSubjectInput()">
+                Add Subject
+              </button>
+            </div>
+
+            <div class="button-group">
+              <button type="button" onclick="clearAllSubjects()">
+                Clear All Subjects
+              </button>
+              <button type="button" onclick="addStudent()">Add Student</button>
+              <button
+                type="button"
+                onclick="updateStudent()"
+                id="updateButton"
+                style="display: none"
+              >
+                Update Student
+              </button>
+              <button type="button" onclick="saveMarks()">Save Marks</button>
+              <button type="button" onclick="downloadMarks()">
+                Download Marks
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
+      <div class="container-2">
         <div class="results">
-            <h2>Results</h2>
-            <h3> Red shows failed and Green shows passed </h3>
-            <div id="studentsList"></div>
+          <h2>Results</h2>
+          <h3>Red shows failed and Green shows passed</h3>
+          <div id="studentsList"></div>
         </div>
+      </div>
     </div>
+
     <!-- Include jsPDF library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="result.js"></script>
-</body>
+  </body>
 </html>
