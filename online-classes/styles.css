@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.record-form, .records {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button[type="button"] {
+    background-color: #007bff;
+}
+
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.student-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.student-row select {
+    flex: 1;
+}
+
+.student-row button {
+    margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}

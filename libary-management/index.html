@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Library Management System</h1>
+    </header>
+    <nav>
+        <a href="#books">Books</a>
+        <a href="#librarians">Librarians</a>
+    </nav>
+    <div class="container">
+        <div class="section" id="books">
+            <h2>Books</h2>
+            <button onclick="showAddBookForm()">Add Book</button>
+            <div id="addBookForm" class="form-popup">
+                <h3>Add/Edit Book</h3>
+                <label for="bookTitle">Title:</label>
+                <input type="text" id="bookTitle" required>
+                <label for="bookAuthor">Author:</label>
+                <input type="text" id="bookAuthor" required>
+                <label for="bookISBN">ISBN:</label>
+                <input type="text" id="bookISBN" required>
+                <button onclick="saveBook()">Save</button>
+                <button onclick="hideAddBookForm()">Cancel</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="bookTableBody">
+                    <!-- Book entries will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        <div class="section" id="librarians">
+            <h2>Student Records</h2>
+            <button onclick="showAddStudentForm()">Add Student</button>
+            <div id="addStudentForm" class="form-popup">
+                <h3>Add/Edit Student</h3>
+                <label for="studentName">Name:</label>
+                <input type="text" id="studentName" required>
+                <label for="studentRoll">Roll Number:</label>
+                <input type="text" id="studentRoll" required>
+                <label for="studentDept">Department:</label>
+                <input type="text" id="studentDept" required>
+                <label for="bookTaken">Book Taken:</label>
+                <input type="text" id="bookTaken" required>
+                <label for="dateTaken">Date Taken:</label>
+                <input type="date" id="dateTaken" required>
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" required>
+                <button onclick="saveStudent()">Save</button>
+                <button onclick="hideAddStudentForm()">Cancel</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll Number</th>
+                        <th>Department</th>
+                        <th>Book Taken</th>
+                        <th>Date Taken</th>
+                        <th>Return Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTableBody">
+                    <!-- Student entries will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+   
+    <script src="scripts.js"></script>
+</body>
+</html>

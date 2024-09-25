@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   
+    <main>
+        <aside>
+            <div class="NEWS Update">
+                <img src="logo.jpg" alt="logo Picture" width="200px" height="250">
+            </div>
+            <ul class="quick-links">
+                <li><a href="#">MarketSheets</a></li>
+                <li><a href="#">Attendance</a></li>
+                <li><a href="#">Payroll Recipiets</a></li>
+                <li><a href="#">Timetable</a></li>
+          
+            </ul>
+        </aside>
+        <section class="content">
+            <div class="staff-list">
+                <input type="text" id="search" placeholder="Search...">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Department</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody id="staffTableBody">
+                        <!-- Staff list items will be populated here by JavaScript -->
+                    </tbody>
+                </table>
+                <button id="addStaffButton">Add New Faculty</button>
+            </div>
+            <div class="staff-details" id="staffDetails">
+                <h2>Personal Details</h2>
+                <form id="staffForm">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName">
+
+                    <label for="position">Position:</label>
+                    <input type="text" id="position" name="position">
+
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department">
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob">
+
+                    <label for="gender">Gender:</label>
+                    <input type="text" id="gender" name="gender">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="text" id="contactNumber" name="contactNumber">
+
+                    <h3>Address Information</h3>
+
+                    <label for="permanentAddress">Permanent Address:</label>
+                    <input type="text" id="permanentAddress" name="permanentAddress">
+
+                    <label for="currentAddress">Current Address:</label>
+                    <input type="text" id="currentAddress" name="currentAddress">
+
+                    <h3>Emergency Contact</h3>
+
+                    <label for="emergencyName">Name:</label>
+                    <input type="text" id="emergencyName" name="emergencyName">
+
+                    <label for="emergencyRelationship">Relationship:</label>
+                    <input type="text" id="emergencyRelationship" name="emergencyRelationship">
+
+                    <label for="emergencyContact">Contact Number:</label>
+                    <input type="text" id="emergencyContact" name="emergencyContact">
+
+                    <h3>Additional Information</h3>
+
+                    <label for="joiningDate">Date of Joining:</label>
+                    <input type="date" id="joiningDate" name="joiningDate">
+
+                    <label for="employeeId">Employee ID:</label>
+                    <input type="text" id="employeeId" name="employeeId">
+
+                    <label for="qualification">Qualification:</label>
+                    <input type="text" id="qualification" name="qualification">
+
+                    <label for="experience">Experience:</label>
+                    <input type="text" id="experience" name="experience">
+
+                    <label for="skills">Skills:</label>
+                    <input type="text" id="skills" name="skills">
+
+                    <button type="submit" id="saveButton">Save</button>
+                    <button type="button" id="editButton">Edit</button>
+                </form>
+            </div>
+        </section>
+    </main>
+ \
+</body>
+</html>
